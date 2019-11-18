@@ -1,0 +1,38 @@
+.el-table {
+  width: 99.9% !important;
+}
+
+.el-table--border, .el-table--group {
+  border: none !important;
+}
+
+.el-table__header-wrapper .has-gutter th, .el-table th {
+  border-right: none;
+  background-color: #ECEFF2 !important;
+  font-size: 14px;
+  font-family: Microsoft YaHei;
+  font-weight: 400;
+  color: rgba(153, 169, 176, 1);
+  line-height: 24px;
+}
+
+.el-table--border td:nth-last-of-type(1) {
+  border-right: none;
+}
+
+.el-table--border td {
+  font-size: 14px;
+  font-family: Microsoft YaHei;
+  font-weight: 400;
+  color: rgba(94, 101, 114, 1);
+  height: 50px;
+}
+
+.el-table--border::after, .el-table--group::after {
+  width: 0;
+}
+
+.el-tooltip__popper {
+  font-size: 14px;
+  max-width: 50%;
+}

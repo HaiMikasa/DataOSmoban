@@ -1,13 +1,58 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <noAuthorityLayout v-if="appFrom === 'noAuthority'" />
+    <layout v-else />
   </div>
 </template>
-
+<script>
+import layout from './views/layout/layout'
+import noAuthorityLayout from './views/layout/noAuthorityLayout'
+import { mapActions, mapState } from 'vuex'
+export default {
+  components: {
+    layout,
+    noAuthorityLayout
+  },
+  name: 'app',
+  data () {
+    return {
+      appFrom: '' // 来源
+    }
+  },
+  created () {
+    if (this.getQueryString('accountToken')) {
+      localStorage.setItem('appManagerToken', JSON.stringify({
+        accessToken: this.getQueryString('accountToken'),
+        accountId: this.getQueryString('accountId')
+      }))
+    }
+  },
+  methods: {
+    getQueryString (name) {
+      const url = window.location.href.substring(window.location.href.indexOf('?'))
+      const reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i')
+      const r = url.substr(1).match(reg)
+      if (r != null) {
+        return unescape(r[2])
+      }
+      return null
+    },
+    ...mapActions([
+      'getSystemFrom'
+    ])
+  },
+  computed: {
+    ...mapState([
+      'systemFrom'
+    ])
+  },
+  watch: {
+    systemFrom: function (now, old) {
+      this.appFrom = now
+    }
+  }
+}
+</script>
 <style lang="less">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

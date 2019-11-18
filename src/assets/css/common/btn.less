@@ -1,0 +1,200 @@
+@color-primary : #39A5BC;
+
+/*一般按钮 空心*/
+.el-button--default {
+    width: 140px;
+    height: 30px;
+    line-height: 28px;
+    border-radius: 15px;
+    background-color: none;
+    border-color: @color-primary;
+    color: @color-primary;
+    font-size: 14px;
+    padding: 0;
+    box-sizing: border-box;
+
+    &:hover {
+        color: @color-primary;
+        background-color: none;
+        border-color: @color-primary;
+        box-shadow: 2px 3px 6px 0px rgba(235, 239, 240, 0.5) !important;
+    }
+
+    &:focus {
+        background-color: none;
+        border-color: @color-primary;
+        color: @color-primary;
+    }
+}
+
+/*主要按钮  */
+.el-button--primary {
+    width: 140px;
+    height: 30px;
+    line-height: 28px;
+    border-radius: 15px;
+    background-color: @color-primary;
+    border-color: @color-primary;
+    font-size: 14px;
+    padding: 0;
+    color: #fff;
+    box-sizing: border-box;
+
+    &:hover {
+        background-color: @color-primary;
+        border-color: @color-primary;
+        color: #fff;
+        box-shadow: 2px 3px 6px 0px rgba(39, 158, 183, 0.5) !important;
+    }
+
+    &:focus {
+        background-color: @color-primary;
+        color: #fff;
+        border-color: @color-primary;
+    }
+}
+
+.button--primary-linear {
+    background: linear-gradient(40deg, rgba(39, 158, 183, 1) 0%, rgba(29, 170, 166, 1) 100%);
+
+    &:hover {
+        background: linear-gradient(40deg, rgba(39, 158, 183, 1) 0%, rgba(29, 170, 166, 1) 100%);
+        box-shadow: 2px 3px 6px 0px rgba(39, 158, 183, 0.5) !important;
+    }
+
+    &:focus {
+        background: linear-gradient(40deg, rgba(39, 158, 183, 1) 0%, rgba(29, 170, 166, 1) 100%);
+        border-color: @color-primary;
+    }
+}
+
+/* 朴素按钮-主要按钮 */
+
+.el-button--primary.is-plain {
+    width: 140px;
+    height: 30px;
+    line-height: 28px;
+    border-radius: 15px;
+    border-color: @color-primary;
+    font-size: 14px;
+    padding: 0;
+    color: #7F8FA4;
+    box-sizing: border-box;
+
+    &:hover {
+        background-color: @color-primary;
+        border-color: @color-primary;
+        color: #fff;
+        box-shadow: 2px 3px 6px 0px rgba(39, 158, 183, 0.5) !important;
+    }
+
+    &:focus {
+        background-color: @color-primary;
+        color: #fff;
+        border-color: @color-primary;
+    }
+}
+
+.el-button--primary.is-disabled.is-plain {
+    width: 140px;
+    height: 30px;
+    line-height: 28px;
+    border-radius: 15px;
+    border-color: @color-primary;
+    font-size: 14px;
+    padding: 0;
+    color: #7F8FA4;
+    box-sizing: border-box;
+
+    &:hover {
+        background-color: @color-primary;
+        border-color: @color-primary;
+        color: #fff;
+        box-shadow: 2px 3px 6px 0px rgba(39, 158, 183, 0.5) !important;
+    }
+
+    &:focus {
+        background-color: @color-primary;
+        color: #fff;
+        border-color: @color-primary;
+    }
+}
+
+.el-button-group .el-button--primary:not(:first-child):not(:last-child) {
+    border-left-color: #39A5BC;
+    border-right-color: #39A5BC;
+}
+
+/*小按钮 */
+.el-button--medium {
+    width: 70px;
+    border-radius: 2px;
+}
+
+/*border-radius */
+.button--smallRadius {
+    border-radius: 5px;
+}
+
+.button--mediumRadius {
+    border-radius: 2px;
+}
+
+/* TAB */
+.el-tabs__item {
+    &:hover {
+        color: @color-primary;
+    }
+}
+
+.el-tabs__item.is-active {
+    color: @color-primary;
+}
+
+.el-tabs__active-bar {
+    background-color: @color-primary;
+}
+
+.el-radio-button__inner {
+    &:hover {
+        color: @color-primary;
+    }
+}
+
+/* 分页 */
+.el-pagination.is-background .el-pager li:not(.disabled).active {
+    background-color: @color-primary;
+}
+
+.el-pagination.is-background .btn-next,
+.el-pagination.is-background .btn-prev,
+.el-pagination.is-background .el-pager li {
+    &:hover {
+        color: @color-primary;
+    }
+}
+
+.el-pager li {
+    &:hover {
+        color: @color-primary;
+    }
+}
+
+.el-pager li.active+li {
+    &:hover {
+        color: @color-primary;
+    }
+}
+
+.el-radio-button__orig-radio:checked+.el-radio-button__inner {
+    background-color: @color-primary;
+    border-color: @color-primary;
+    -webkit-box-shadow: -1px 0 0 0 @color-primary;
+    box-shadow: -1px 0 0 0 @color-primary;
+}
+
+/* textarea */
+textarea {
+    font-family: monospace;
+    border-color: #DCDFE6;
+}
