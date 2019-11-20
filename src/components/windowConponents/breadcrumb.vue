@@ -43,7 +43,7 @@ export default {
   },
   methods: {
     handleLink (item) {
-      this.$route.push(item.pageName)
+      this.$router.push(item.pageName)
     },
     breadNameFormat (arr) {
       let tempName = ''
@@ -63,7 +63,7 @@ export default {
         this.levelList = arr
         const breadName = []
         _.forEach(this.levelList, function (value, key) {
-          breadName.push(value.meta.title)
+          breadName.push(value.title)
         })
         window.parent.postMessage({ type: 'windowName', newData: { windowName: breadName.join('>'), systemName: 'appManager' } }, '*')
       },

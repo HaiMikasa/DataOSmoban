@@ -21,7 +21,7 @@ export default {
   },
   created () {
     if (this.getQueryString('accountToken')) {
-      localStorage.setItem('appManagerToken', JSON.stringify({
+      localStorage.setItem('operationManagerToken', JSON.stringify({
         accessToken: this.getQueryString('accountToken'),
         accountId: this.getQueryString('accountId')
       }))

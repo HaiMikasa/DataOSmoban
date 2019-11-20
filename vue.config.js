@@ -6,7 +6,7 @@ module.exports = {
   configureWebpack: {
     entry: './src/main.js'
   },
-  baseUrl: '/appManager/',
+  baseUrl: '/operationManager/',
   lintOnSave: true,
   chainWebpack: (config) => {
     config.resolve.alias

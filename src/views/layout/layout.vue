@@ -7,7 +7,7 @@
     <el-main>
       <el-container style="height: 100%" direction="vertical">
         <el-container>
-          <el-main style="background-color: #f2f6f7">
+          <el-main style="padding: 0;">
             <router-view :key="$route.fullPath"/>
           </el-main>
         </el-container>
@@ -51,7 +51,7 @@ export default {
 
 <style scoped lang="less">
   .main {
-    background-color: #dfe6eb;
+    background-color: #f2f6f7;
     position: absolute;
     // height: 100%;
     height: 100vh;
