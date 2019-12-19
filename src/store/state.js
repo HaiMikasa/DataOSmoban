@@ -11,5 +11,7 @@ export default {
     searchContent: '', // 搜索关键字
     searchPageName: '', // 搜索跳转页面
     isSearch: false // 是否进行搜索
-  } // 搜索组件对象
+  }, // 搜索组件对象
+  menuList: [], // 权限菜单列表
+  systemFrom: 'appManager'
 }

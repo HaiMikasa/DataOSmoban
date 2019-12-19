@@ -1,1 +1,2 @@
-window.appManagerHost = 'http://10.0.33.242:18009/api/v2/daas'
+window.appManagerHost = 'http://172.16.24.194:19005/api/v2/appmanage'
+window.appManagerImgUrl = 'http://172.16.24.194:8888/dataos/'

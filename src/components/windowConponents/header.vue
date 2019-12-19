@@ -21,6 +21,7 @@
 
 <script>
 import { mapState } from 'vuex'
+import baseUrl from '../../assets/js/common/env'
 export default {
   name: 'headMenu',
   props: ['menuList'],
@@ -30,7 +31,8 @@ export default {
   data () {
     return {
       hoverArray: [], // hover状态数组
-      clickArray: [] // click状态数组
+      clickArray: [], // click状态数组
+      baseUrl: baseUrl
     }
   },
   methods: {
@@ -57,11 +59,18 @@ export default {
     }
   },
   mounted () {
-    _.forEach(this.menuList, (value, index) => {
-      this.hoverArray[index] = false
-      index === 0 ? this.clickArray[index] = true : this.clickArray[index] = false
-      this.$forceUpdate()
-    })
+    if (this.menuList.length > 0) {
+      _.forEach(this.menuList, (value, index) => {
+        this.hoverArray[index] = false
+        if (index === 0) {
+          // 将菜单第一个置为选中并跳转到其路由地址
+          this.clickArray[index] = true
+        } else {
+          this.clickArray[index] = false
+        }
+        this.$forceUpdate()
+      })
+    }
   },
   watch: {
     breadcrumb: {
@@ -73,6 +82,18 @@ export default {
         this.$forceUpdate()
       },
       deep: true
+    },
+    '$route.path': function (newVal, oldVal) {
+      if (newVal.indexOf('appListPage') > -1) {
+        // 如果当前路由在应用清单下
+        const index = _.findIndex(this.menuList, { name: '应用清单' })
+        this.clickArray[index] = true
+      } else if (newVal.indexOf('linksManager') > -1) {
+        // 如果当前路由在外链管理下
+        const index = _.findIndex(this.menuList, { name: '外链管理' })
+        this.clickArray[index] = true
+      }
+      this.$forceUpdate()
     }
   }
 }

@@ -7,5 +7,11 @@ export default {
   },
   changeSearchObject (state, obj) {
     state.searchObject = obj
-  }
+  },
+  changeMenuList (state, obj) {
+    state.menuList = obj
+  },
+  addSystemFrom (state, val) {
+    state.systemFrom = val
+  },
 }

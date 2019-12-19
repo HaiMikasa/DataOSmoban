@@ -19,6 +19,8 @@
 <script>
 import headerMenu from '../../components/windowConponents/header'
 import breadcrumb from '../../components/windowConponents/breadcrumb'
+import { mapActions } from 'vuex'
+import { authPermissons } from '../../assets/js/api/home'
 export default {
   name: 'layout',
   components: {
@@ -37,6 +39,35 @@ export default {
       isAccessManager: false
     }
   },
+  mounted () {
+    authPermissons({
+      projectId: '666662b023124106b2ffbfc5eac66666'
+    }).then((res) => {
+      if (res.code === 200) {
+        this.menuList = []
+        _.forEach(res.result.data.menuResourceList, (res) => {
+          // 给对应的模块添加路由跳转地址
+          if (res.code === 'A034') {
+            // 应用清单
+            res.pageName = 'appListPage'
+          } else if (res.code === 'A030') {
+            // 外链管理
+            res.pageName = 'linksManager'
+          }
+          // 把有权限的过滤出来传给顶部组件
+          if (res.checked === '1') {
+            this.menuList.push(res)
+          }
+        })
+        this.changeMenuList(this.menuList)
+      } else {
+        this.$message.error(res.message)
+      }
+    })
+      .catch((err) => {
+        console.log(err)
+      })
+  },
   filters: {
 
   },
@@ -44,7 +75,7 @@ export default {
 
   },
   methods: {
-
+    ...mapActions(['changeMenuList'])
   }
 }
 </script>
