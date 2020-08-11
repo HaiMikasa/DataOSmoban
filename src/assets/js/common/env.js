@@ -1,5 +1,4 @@
 const baseUrl = {
-  appManagerHost: window.appManagerHost,
-  appManagerImgUrl: window.appManagerImgUrl
+  eduPlatformHost: window.eduPlatformHost
 }
 export default baseUrl

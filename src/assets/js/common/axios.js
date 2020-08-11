@@ -7,7 +7,7 @@ const v = new Vue()
 const qs = require('qs')
 
 var instance = axios.create({
-  baseURL: baseUrl.appManagerHost,
+  baseURL: baseUrl.eduPlatformHost,
   timeout: 50000,
   paramsSerializer: function (params) {
     return qs.stringify(params, { arrayFormat: 'repeat' })
@@ -41,13 +41,13 @@ instance.interceptors.response.use(
       /**
        * 部分接口返回code和message，需要自行判断结果
        */
-      if (response.data.code === 11030113 || response.data.msg === 'token不能为空') {
-        // 没权限或者登录失效统一跳无权限页面
-        router.push({ name: 'noJurisdiction' })
-      }
+      // if (response.data.code === 11030113 || response.data.msg === 'token不能为空') {
+      //   // 没权限或者登录失效统一跳无权限页面
+      //   router.push({ name: 'noJurisdiction' })
+      // }
       return response.data
     } else if (status === 401) {
-      router.push({ name: 'noJurisdiction' })
+      // router.push({ name: 'noJurisdiction' })
     } else {
       Message({
         message: status + response.statusText,

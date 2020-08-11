@@ -1,13 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '../views/home/index'
-import noJurisdiction from '../views/home/lackOfCompetence' // 无权限页面
+import trainingCourse from './trainingCourse/index'
 
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
-  base: '/operationManager/',
+  base: '/eduPlatform/',
   routes: [
     {
       path: '/',
@@ -18,10 +17,6 @@ export default new Router({
       name: 'home',
       component: Home
     },
-    {
-      path: '/noJurisdiction',
-      name: 'noJurisdiction',
-      component: noJurisdiction
-    }
+    ...trainingCourse
   ]
 })

@@ -6,7 +6,7 @@ module.exports = {
   configureWebpack: {
     entry: './src/main.js'
   },
-  baseUrl: '/operationManager/',
+  baseUrl: '/eduPlatform/',
   lintOnSave: true,
   chainWebpack: (config) => {
     config.resolve.alias
@@ -36,7 +36,7 @@ module.exports = {
   },
   devServer: { //开发配置
     open: true, // 时都自动打开项目
-    host: 'localhost', // 指定域名
+    host: '0.0.0.0', // 指定域名
     port: 8080, // 端口号
     https: false,
     hotOnly: false,
