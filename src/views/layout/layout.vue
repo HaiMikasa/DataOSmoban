@@ -1,24 +1,29 @@
 <template>
   <el-container class="main" direction="vertical">
-    <header-nav></header-nav>
-    <el-container>
-      <aside-menu></aside-menu>
-      <el-main>
-        <router-view></router-view>
-      </el-main>
-    </el-container>
+    <header-menu
+      :menuList="menuList"
+    ></header-menu>
+    <breadcrumb></breadcrumb>
+    <el-main>
+      <el-container style="height: 100%" direction="vertical">
+        <el-container>
+          <el-main style="padding: 0;">
+            <router-view :key="$route.fullPath"/>
+          </el-main>
+        </el-container>
+      </el-container>
+    </el-main>
   </el-container>
 </template>
 
 <script>
-import headerNav from '../../components/windowConponents/header'
-import asideMenu from '../../components/windowConponents/asideMenu'
-import { mapActions } from 'vuex'
+import headerMenu from '../../components/windowConponents/header'
+import breadcrumb from '../../components/windowConponents/breadcrumb'
 export default {
   name: 'layout',
   components: {
-    headerNav,
-    asideMenu
+    headerMenu,
+    breadcrumb
   },
   provide () {
     return {
@@ -32,7 +37,13 @@ export default {
       isAccessManager: false
     }
   },
-  mounted () {
+  filters: {
+
+  },
+  watch: {
+
+  },
+  methods: {
 
   }
 }
