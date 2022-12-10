@@ -16,7 +16,7 @@
     "lodash": "^4.17.11",
     "moment": "^2.20.1",
     "path-to-regexp": "^3.0.0",
-    "qs": "^6.7.0",
+    "qs": "^6.5.3",
     "vue": "^2.6.10",
     "vue-json-viewer": "^2.2.4",
     "vue-router": "^3.0.3",
